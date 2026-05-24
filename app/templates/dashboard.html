@@ -23,9 +23,11 @@
           </p>
         </div>
         <div class="col-auto">
-          <a href="{{ url_for('auth.logout') }}" class="btn vx-btn-outline-light btn-sm">
+          <button class="btn vx-btn-outline-light btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#logoutModal">
             <i class="bi bi-box-arrow-right me-1"></i>Logout
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -140,7 +142,7 @@
 │   │   └── auth.py        <span class="vx-tree-comment"># Login / Registration protection</span>
 │   ├── static/
 │   │   ├── css/style.css  <span class="vx-tree-comment"># Solid ultra-clean light mode styles</span>
-│   │   └── models/        <span class="vx-tree-comment"># Recommended path for serialized models</span>
+│   │   └── models/        <span class="vx-tree-comment" style="color: purple; font-weight: bold;"># Recommended path for serialized models</span>
 │   └── templates/         <span class="vx-tree-comment"># UI Control Dashboard</span>
 ├── tests/
 │   └── test_app.py        <span class="vx-tree-comment"># Automated API endpoint verification</span>

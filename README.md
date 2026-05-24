@@ -213,7 +213,8 @@ veltrix/
 │   ├── static/
 │   │   ├── css/style.css    # Custom dark theme styles
 │   │   ├── js/main.js       # Vanilla JS enhancements
-│   │   └── img/             # Static images
+│   │   ├── img/             # Static images
+│   │   └── models/          # Folder to store machine learning, data science, and AI models (e.g. .pkl, .onnx, etc.)
 │   │
 │   └── utils/
 │       ├── __init__.py

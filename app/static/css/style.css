@@ -261,6 +261,27 @@ pre code {
   color: var(--vx-text-dark);
 }
 
+.vx-btn-danger {
+  background-color: #dc2626;
+  border: 1px solid #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: var(--vx-radius);
+  transition: var(--vx-transition);
+  font-size: 0.95rem;
+  padding: 0.6rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.vx-btn-danger:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+  color: #ffffff;
+}
+
 
 /* ================================================================
    5. FLASH MESSAGES
