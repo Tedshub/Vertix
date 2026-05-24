@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="app/static/img/full-logo.jpg" alt="Veltrix Logo" width="180">
+</p>
+
 # Vertrix
 
 > **The modern Flask starter framework for deploying Machine Learning, Data Science, and AI models.**  
