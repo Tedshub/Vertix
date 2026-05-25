@@ -830,3 +830,112 @@ pre code {
     margin-right: auto;
   }
 }
+
+
+/* ================================================================
+   13. ANIMATION AND MICRO-INTERACTIONS
+   ================================================================ */
+
+/* Transition-based Animation Classes (Above-the-fold & Page Load) */
+.vx-animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.vx-animate-fade-in-down {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.vx-animate-fade-in-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.vx-animate-fade-in-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.vx-animate-scale-in {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* Active State for Page-Load Animations */
+.vx-animate-fade-in-up.vx-visible,
+.vx-animate-fade-in-down.vx-visible,
+.vx-animate-fade-in-left.vx-visible,
+.vx-animate-fade-in-right.vx-visible,
+.vx-animate-scale-in.vx-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Transition Delay Helpers */
+.vx-delay-100 { transition-delay: 100ms; }
+.vx-delay-200 { transition-delay: 200ms; }
+.vx-delay-300 { transition-delay: 300ms; }
+.vx-delay-400 { transition-delay: 400ms; }
+.vx-delay-500 { transition-delay: 500ms; }
+.vx-delay-600 { transition-delay: 600ms; }
+.vx-delay-700 { transition-delay: 700ms; }
+
+/* Scroll-Triggered Reveal Initial States (for Intersection Observer) */
+.vx-feature-card,
+.vx-stat-card,
+.vx-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Intersection Observer Active State */
+.vx-feature-card.vx-visible,
+.vx-stat-card.vx-visible,
+.vx-card.vx-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhance Auth Cards and Inputs */
+.vx-auth-card {
+  border-top: 4px solid var(--vx-accent);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vx-auth-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+.vx-input-group {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.vx-input-group:focus-within {
+  transform: translateY(-1px);
+}
+
+/* Micro-animations for Interactive Elements */
+.vx-btn-primary,
+.vx-btn-accent {
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vx-btn-primary:active,
+.vx-btn-accent:active {
+  transform: scale(0.98);
+}
+

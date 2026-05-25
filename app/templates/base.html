@@ -45,6 +45,23 @@
   <!-- ── Custom styles ─────────────────────────────────────────── -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
+  <!-- Noscript Fallback for accessibility -->
+  <noscript>
+    <style>
+      .vx-animate-fade-in-up,
+      .vx-animate-fade-in-down,
+      .vx-animate-fade-in-left,
+      .vx-animate-fade-in-right,
+      .vx-animate-scale-in,
+      .vx-feature-card,
+      .vx-stat-card,
+      .vx-card {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+
   {% block extra_head %}{% endblock %}
 </head>
 
@@ -111,7 +128,7 @@
             <li class="nav-item">
               <a class="btn vx-btn-primary btn-sm px-3"
                  href="{{ url_for('auth.register') }}">
-                Get Started
+                Register
               </a>
             </li>
           {% endif %}

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFlashAutoDismiss();
   initActiveNavLink();
   initFadeInCards();
+  initPageLoadAnimations();
 });
 
 
@@ -86,21 +87,49 @@ function initFadeInCards() {
     ".vx-feature-card, .vx-stat-card, .vx-card"
   );
 
-  if (!("IntersectionObserver" in window)) return;
+  if (!("IntersectionObserver" in window)) {
+    // Fallback: make all cards visible immediately if IntersectionObserver is not supported
+    cards.forEach((card) => card.classList.add("vx-visible"));
+    return;
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          // Stagger each card by 80ms
-          entry.target.style.animationDelay = `${i * 80}ms`;
-          entry.target.classList.add("vx-visible");
-          observer.unobserve(entry.target);
-        }
+      // Filter entries that are actually intersecting to stagger them properly
+      const intersectingEntries = entries.filter(entry => entry.isIntersecting);
+      intersectingEntries.forEach((entry, i) => {
+        // Stagger each card by 80ms
+        const delay = i * 80;
+        entry.target.style.transitionDelay = `${delay}ms`;
+        entry.target.classList.add("vx-visible");
+        observer.unobserve(entry.target);
+
+        // Remove the inline transition delay after the animation completes
+        // so that hover styles react instantly without delay.
+        setTimeout(() => {
+          entry.target.style.transitionDelay = "";
+        }, delay + 800);
       });
     },
     { threshold: 0.1 }
   );
 
   cards.forEach((card) => observer.observe(card));
+}
+
+/* ================================================================
+   5. Page-load Animations
+      Triggers page-load transition classes after DOM has loaded.
+   ================================================================ */
+function initPageLoadAnimations() {
+  const loadElements = document.querySelectorAll(
+    ".vx-animate-fade-in-up, .vx-animate-fade-in-down, .vx-animate-fade-in-left, .vx-animate-fade-in-right, .vx-animate-scale-in"
+  );
+  
+  // Stagger or execute page-load animation classes
+  setTimeout(() => {
+    loadElements.forEach((el) => {
+      el.classList.add("vx-visible");
+    });
+  }, 50);
 }
